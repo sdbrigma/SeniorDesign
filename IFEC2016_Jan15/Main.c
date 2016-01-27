@@ -1,0 +1,194 @@
+//###########################################################################
+// Description:
+//! \addtogroup f2806x_example_list
+//! <h1>ePWM Timer Interrupt From Flash (flash_f28069)</h1>
+//!
+//! This example runs the ePWM interrupt example from flash. ePwm1 Interrupt 
+//! will run from RAM and puts the flash into sleep mode. ePwm2 Interrupt 
+//! will run from RAM and puts the flash into standby mode. ePWM3 Interrupt
+//! will run from FLASH. All timers have the same period. The timers are 
+//! started sync'ed. An interrupt is taken on a zero event for each ePWM 
+//! timer.GPIO34 is toggled while in the background loop.
+//! Note:
+//!   - ePWM1: takes an interrupt every event
+//!   - ePWM2: takes an interrupt every 2nd event
+//!   - ePWM3: takes an interrupt every 3rd event 
+//! Thus the Interrupt count for ePWM1, ePWM4-ePWM6 should be equal
+//! The interrupt count for ePWM2 should be about half that of ePWM1
+//! and the interrupt count for ePWM3 should be about 1/3 that of ePWM1
+//! 
+//! Follow these steps to run the program.
+//!   - Build the project
+//!   - Flash the .out file into the device.
+//!   - Set the hardware jumpers to boot to Flash (put position 1 and 2 of 
+//!     SW2 on control Card to ON position).
+//!   - Use the included GEL file to load the project, symbols
+//!     defined within the project and the variables into the watch
+//!     window.
+//! 
+//! Steps that were taken to convert the ePWM example from RAM
+//! to Flash execution: 
+//! - Change the linker cmd file to reflect the flash memory map.
+//! - Make sure any initialized sections are mapped to Flash.
+//!   In SDFlash utility this can be checked by the View->Coff/Hex
+//!   status utility. Any section marked as "load" should be
+//!   allocated to Flash.
+//! - Make sure there is a branch instruction from the entry to Flash
+//!   at 0x3F7FF6 to the beginning of code execution. This example
+//!   uses the DSP0x_CodeStartBranch.asm file to accomplish this.
+//! - Set boot mode Jumpers to "boot to Flash"
+//! - For best performance from the flash, modify the waitstates
+//!   and enable the flash pipeline as shown in this example.
+//!   Note: any code that manipulates the flash waitstate and pipeline
+//!   control must be run from RAM. Thus these functions are located
+//!   in their own memory section called ramfuncs.
+//! 
+//! \b Watch \b Variables \n
+//!  - EPwm1TimerIntCount
+//!  - EPwm2TimerIntCount
+//!  - EPwm3TimerIntCount
+//
+//###########################################################################
+// $TI Release: F2806x C/C++ Header Files and Peripheral Examples V150 $
+// $Release Date: June 16, 2015 $
+// $Copyright: Copyright (C) 2011-2015 Texas Instruments Incorporated -
+//             http://www.ti.com/ ALL RIGHTS RESERVED $
+//###########################################################################
+
+#include "DSP28x_Project.h"     // Device Headerfile and Examples Include File
+#include "string.h"
+#include "macros.h"
+#include "functions.h"
+
+// Functions that will be run from RAM need to be assigned to
+// a different section.  This section will then be mapped using
+// the linker cmd file.
+//#pragma CODE_SECTION(epwm1_timer_isr, "ramfuncs");
+//#pragma CODE_SECTION(epwm5_timer_isr, "ramfuncs");
+//#pragma CODE_SECTION(epwm2_timer_isr, "ramfuncs");
+
+extern volatile Uint32 EPwm5TimerIntCount = 0;
+extern volatile Uint32  ADC_Avg = 0;
+extern volatile Uint16 ADC_Value[16] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+Uint32  LoopCount;
+
+
+unsigned char *rto1;
+char to1=0x8000;
+char rfrom1=0;
+char from1=0;
+unsigned int rn1=0;
+unsigned int nn1 =10;
+unsigned int n1 =0;
+
+
+// These are defined by the linker (see F2808.cmd)
+extern Uint16 RamfuncsLoadStart;
+extern Uint16 RamfuncsLoadEnd;
+extern Uint16 RamfuncsRunStart;
+extern Uint16 RamfuncsLoadSize;
+
+void main(void)
+{
+
+
+// Step 1. Initialize System Control:
+// PLL, WatchDog, enable Peripheral Clocks
+// This example function is found in the F2806x_SysCtrl.c file.
+	char * rto1 = (char *)0x8000;
+    for (rn1 = 0; rn1 < nn1; rn1++) *rto1++ = rfrom1;
+	memcpy(&RamfuncsRunStart, &RamfuncsLoadStart, (Uint32)&RamfuncsLoadSize);
+   InitSysCtrl();
+
+// Step 2. Initalize GPIO:
+// This example function is found in the F2806x_Gpio.c file and
+// illustrates how to set the GPIO to it's default state.
+// InitGpio();  // Skipped for this example
+
+// Step 3. Clear all interrupts and initialize PIE vector table:
+// Disable CPU interrupts
+   DINT;
+
+// Initialize the PIE control registers to their default state.
+// The default state is all PIE interrupts disabled and flags
+// are cleared.
+// This function is found in the F2806x_PieCtrl.c file.
+   InitPieCtrl();
+
+// Disable CPU interrupts and clear all CPU interrupt flags:
+   IER = 0x0000;
+   IFR = 0x0000;
+
+// Initialize the PIE vector table with pointers to the shell Interrupt
+// Service Routines (ISR).
+// This will populate the entire table, even if the interrupt
+// is not used in this example.  This is useful for debug purposes.
+// The shell ISR routines are found in F2806x_DefaultIsr.c.
+// This function is found in F2806x_PieVect.c.
+   InitPieVectTable();
+
+// Interrupts that are used in this example are re-mapped to
+// ISR functions found within this file.
+   EALLOW;  // This is needed to write to EALLOW protected registers
+   PieVectTable.EPWM5_INT = &epwm5_timer_isr;
+   EDIS;    // This is needed to disable write to EALLOW protected registers
+
+	// Step 4. Initialize all the Device Peripherals:
+	// This function is found in F2806x_InitPeripherals.c
+	// InitPeripherals(); // Not required for this example
+	InitAdc();  // For this example, init the ADC
+	//InitAdcAio(); // Function that sets analog input pins
+	ConfigADC();
+	//AdcOffsetSelfCal();
+	InitEPwm(); // Function initializes ePWM 1 - 5
+
+// Step 5. User specific code, enable interrupts:
+
+// Copy time critical code and Flash setup code to RAM
+// This includes the following ISR functions: epwm1_timer_isr(), epwm2_timer_isr()
+// epwm3_timer_isr and and InitFlash();
+// The  RamfuncsLoadStart, RamfuncsLoadSize, and RamfuncsRunStart
+// symbols are created by the linker. Refer to the F2808.cmd file.
+
+
+   // Call Flash Initialization to setup flash waitstates
+   // This function must reside in RAM
+   InitFlash();
+
+   IER |= M_INT3;		// Enable CPU INT3 which is connected to EPWM1-8 INT: page 175 in documentation
+   IER |= M_INT10; 		// Enable CPU Interrupt 10
+
+   // Enable EPWM INTn in the PIE: Group 3 interrupt 1-3
+   PieCtrlRegs.PIEIER3.bit.INTx5 = PWM5_INT_ENABLE;
+
+	// Enable ADCINT1 in PIE
+	/*PieCtrlRegs.PIEIER10.bit.INTx1 = 1;	// Enable INT 10.1 in the PIE
+	PieCtrlRegs.PIEIER10.bit.INTx2 = 1;	// Enable INT 10.2 in the PIE
+	PieCtrlRegs.PIEIER10.bit.INTx3 = 1;	// Enable INT 10.3 in the PIE
+	PieCtrlRegs.PIEIER10.bit.INTx4 = 1;	// Enable INT 10.4 in the PIE
+	PieCtrlRegs.PIEIER10.bit.INTx5 = 1;	// Enable INT 10.5 in the PIE
+	PieCtrlRegs.PIEIER10.bit.INTx6 = 1;	// Enable INT 10.6 in the PIE
+	PieCtrlRegs.PIEIER10.bit.INTx7 = 1;	// Enable INT 10.7 in the PIE
+	PieCtrlRegs.PIEIER10.bit.INTx8 = 1;	// Enable INT 10.8 in the PIE*/
+
+	// Enable global Interrupts and higher priority real-time debug events:
+	EINT;   // Enable Global interrupt INTM
+	ERTM;   // Enable Global realtime interrupt DBGM
+
+   // Step 6. IDLE loop. Just sit and loop forever (optional):
+   EALLOW;
+   GpioCtrlRegs.GPBMUX2.bit.GPIO54 = 0;
+   GpioCtrlRegs.GPBDIR.bit.GPIO54 = 1;
+   GpioDataRegs.GPBCLEAR.bit.GPIO54 = 1;
+   EDIS;
+
+   for(;;)
+   {
+       // This loop will be interrupted, so the overall
+       // delay between pin toggles will be longer.
+       DELAY_US(DELAY);
+	   LoopCount++;
+       //GpioDataRegs.GPBTOGGLE.bit.GPIO34 = 1;
+   }
+
+}

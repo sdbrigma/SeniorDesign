@@ -1,0 +1,37 @@
+
+**** Build of configuration Debug for project IFEC2016_ADC_test_Dec3 ****
+
+"C:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
+'Building file: ../Main.c'
+'Invoking: C2000 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_6.4.6/bin/cl2000" -v28 -ml -mt --float_support=fpu32 --cla_support=cla0 --vcu_support=vcu0 --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_6.4.6/include" --include_path="/packages/ti/xdais" --include_path="C:/ti/controlSUITE/device_support/f2806x/v150/F2806x_headers/include" --include_path="C:/ti/controlSUITE/device_support/f2806x/v150/F2806x_common/include" --include_path="C:/ti/controlSUITE/libs/math/IQmath/v160/include" --include_path="C:/ti/controlSUITE/libs/math/FPUfastRTS/V100/include" -g --define="_DEBUG" --define="LARGE_MODEL" --quiet --diag_warning=225 --verbose_diagnostics --issue_remarks --diag_suppress=10063 --cdebug_asm_data --output_all_syms --preproc_with_compile --preproc_dependency="Main.pp"  "../Main.c"
+"../Main.c", line 134: error: identifier "epwm5_timer_isr" is undefined
+     PieVectTable.EPWM5_INT = &epwm5_timer_isr;
+                               ^
+
+1 error detected in the compilation of "../Main.c".
+
+>> Compilation failure
+gmake: *** [Main.obj] Error 1
+'Building file: ../adc.c'
+'Invoking: C2000 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_6.4.6/bin/cl2000" -v28 -ml -mt --float_support=fpu32 --cla_support=cla0 --vcu_support=vcu0 --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_6.4.6/include" --include_path="/packages/ti/xdais" --include_path="C:/ti/controlSUITE/device_support/f2806x/v150/F2806x_headers/include" --include_path="C:/ti/controlSUITE/device_support/f2806x/v150/F2806x_common/include" --include_path="C:/ti/controlSUITE/libs/math/IQmath/v160/include" --include_path="C:/ti/controlSUITE/libs/math/FPUfastRTS/V100/include" -g --define="_DEBUG" --define="LARGE_MODEL" --quiet --diag_warning=225 --verbose_diagnostics --issue_remarks --diag_suppress=10063 --cdebug_asm_data --output_all_syms --preproc_with_compile --preproc_dependency="adc.pp"  "../adc.c"
+'Finished building: ../adc.c'
+' '
+'Building file: ../epwm-config.c'
+'Invoking: C2000 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_6.4.6/bin/cl2000" -v28 -ml -mt --float_support=fpu32 --cla_support=cla0 --vcu_support=vcu0 --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_6.4.6/include" --include_path="/packages/ti/xdais" --include_path="C:/ti/controlSUITE/device_support/f2806x/v150/F2806x_headers/include" --include_path="C:/ti/controlSUITE/device_support/f2806x/v150/F2806x_common/include" --include_path="C:/ti/controlSUITE/libs/math/IQmath/v160/include" --include_path="C:/ti/controlSUITE/libs/math/FPUfastRTS/V100/include" -g --define="_DEBUG" --define="LARGE_MODEL" --quiet --diag_warning=225 --verbose_diagnostics --issue_remarks --diag_suppress=10063 --cdebug_asm_data --output_all_syms --preproc_with_compile --preproc_dependency="epwm-config.pp"  "../epwm-config.c"
+'Finished building: ../epwm-config.c'
+' '
+'Building file: ../pwm-isr.c'
+'Invoking: C2000 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_6.4.6/bin/cl2000" -v28 -ml -mt --float_support=fpu32 --cla_support=cla0 --vcu_support=vcu0 --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_6.4.6/include" --include_path="/packages/ti/xdais" --include_path="C:/ti/controlSUITE/device_support/f2806x/v150/F2806x_headers/include" --include_path="C:/ti/controlSUITE/device_support/f2806x/v150/F2806x_common/include" --include_path="C:/ti/controlSUITE/libs/math/IQmath/v160/include" --include_path="C:/ti/controlSUITE/libs/math/FPUfastRTS/V100/include" -g --define="_DEBUG" --define="LARGE_MODEL" --quiet --diag_warning=225 --verbose_diagnostics --issue_remarks --diag_suppress=10063 --cdebug_asm_data --output_all_syms --preproc_with_compile --preproc_dependency="pwm-isr.pp"  "../pwm-isr.c"
+"../pwm-isr.c", line 16: warning: specified symbol 'epwm5_timer_isr' undefined
+  #pragma CODE_SECTION(epwm5_timer_isr, "ramfuncs");
+  ^
+
+'Finished building: ../pwm-isr.c'
+' '
+gmake: Target `all' not remade because of errors.
+
+**** Build Finished ****

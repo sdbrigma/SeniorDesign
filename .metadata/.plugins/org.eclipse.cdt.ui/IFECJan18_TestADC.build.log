@@ -1,0 +1,56 @@
+
+**** Build of configuration Debug for project IFECJan18_TestADC ****
+
+"C:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
+'Building file: C:/ti/controlSUITE/device_support/f2806x/v150/F2806x_headers/source/F2806x_GlobalVariableDefs.c'
+'Invoking: C2000 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_6.4.9/bin/cl2000" -v28 -mt -ml --vcu_support=vcu0 --cla_support=cla0 --float_support=fpu32 --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_6.4.9/include" --include_path="/packages/ti/xdais" --include_path="C:/ti/controlSUITE/device_support/f2806x/v150/F2806x_headers/include" --include_path="C:/ti/controlSUITE/device_support/f2806x/v150/F2806x_common/include" --include_path="C:/ti/controlSUITE/libs/math/IQmath/v160/include" --include_path="C:/ti/controlSUITE/libs/math/FPUfastRTS/V100/include" -g --define="_DEBUG" --define="LARGE_MODEL" --quiet --diag_warning=225 --issue_remarks --verbose_diagnostics --diag_suppress=10063 --output_all_syms --cdebug_asm_data --preproc_with_compile --preproc_dependency="F2806x_GlobalVariableDefs.pp"  "C:/ti/controlSUITE/device_support/f2806x/v150/F2806x_headers/source/F2806x_GlobalVariableDefs.c"
+'Finished building: C:/ti/controlSUITE/device_support/f2806x/v150/F2806x_headers/source/F2806x_GlobalVariableDefs.c'
+' '
+'Building file: C:/ti/controlSUITE/device_support/f2806x/v150/F2806x_common/source/F2806x_PieCtrl.c'
+'Invoking: C2000 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_6.4.9/bin/cl2000" -v28 -mt -ml --vcu_support=vcu0 --cla_support=cla0 --float_support=fpu32 --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_6.4.9/include" --include_path="/packages/ti/xdais" --include_path="C:/ti/controlSUITE/device_support/f2806x/v150/F2806x_headers/include" --include_path="C:/ti/controlSUITE/device_support/f2806x/v150/F2806x_common/include" --include_path="C:/ti/controlSUITE/libs/math/IQmath/v160/include" --include_path="C:/ti/controlSUITE/libs/math/FPUfastRTS/V100/include" -g --define="_DEBUG" --define="LARGE_MODEL" --quiet --diag_warning=225 --issue_remarks --verbose_diagnostics --diag_suppress=10063 --output_all_syms --cdebug_asm_data --preproc_with_compile --preproc_dependency="F2806x_PieCtrl.pp"  "C:/ti/controlSUITE/device_support/f2806x/v150/F2806x_common/source/F2806x_PieCtrl.c"
+'Finished building: C:/ti/controlSUITE/device_support/f2806x/v150/F2806x_common/source/F2806x_PieCtrl.c'
+' '
+'Building file: C:/ti/controlSUITE/device_support/f2806x/v150/F2806x_common/source/F2806x_PieVect.c'
+'Invoking: C2000 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_6.4.9/bin/cl2000" -v28 -mt -ml --vcu_support=vcu0 --cla_support=cla0 --float_support=fpu32 --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_6.4.9/include" --include_path="/packages/ti/xdais" --include_path="C:/ti/controlSUITE/device_support/f2806x/v150/F2806x_headers/include" --include_path="C:/ti/controlSUITE/device_support/f2806x/v150/F2806x_common/include" --include_path="C:/ti/controlSUITE/libs/math/IQmath/v160/include" --include_path="C:/ti/controlSUITE/libs/math/FPUfastRTS/V100/include" -g --define="_DEBUG" --define="LARGE_MODEL" --quiet --diag_warning=225 --issue_remarks --verbose_diagnostics --diag_suppress=10063 --output_all_syms --cdebug_asm_data --preproc_with_compile --preproc_dependency="F2806x_PieVect.pp"  "C:/ti/controlSUITE/device_support/f2806x/v150/F2806x_common/source/F2806x_PieVect.c"
+'Finished building: C:/ti/controlSUITE/device_support/f2806x/v150/F2806x_common/source/F2806x_PieVect.c'
+' '
+'Building file: C:/ti/controlSUITE/device_support/f2806x/v150/F2806x_common/source/F2806x_SysCtrl.c'
+'Invoking: C2000 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_6.4.9/bin/cl2000" -v28 -mt -ml --vcu_support=vcu0 --cla_support=cla0 --float_support=fpu32 --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_6.4.9/include" --include_path="/packages/ti/xdais" --include_path="C:/ti/controlSUITE/device_support/f2806x/v150/F2806x_headers/include" --include_path="C:/ti/controlSUITE/device_support/f2806x/v150/F2806x_common/include" --include_path="C:/ti/controlSUITE/libs/math/IQmath/v160/include" --include_path="C:/ti/controlSUITE/libs/math/FPUfastRTS/V100/include" -g --define="_DEBUG" --define="LARGE_MODEL" --quiet --diag_warning=225 --issue_remarks --verbose_diagnostics --diag_suppress=10063 --output_all_syms --cdebug_asm_data --preproc_with_compile --preproc_dependency="F2806x_SysCtrl.pp"  "C:/ti/controlSUITE/device_support/f2806x/v150/F2806x_common/source/F2806x_SysCtrl.c"
+'Finished building: C:/ti/controlSUITE/device_support/f2806x/v150/F2806x_common/source/F2806x_SysCtrl.c'
+' '
+'Building file: C:/ti/controlSUITE/device_support/f2806x/v150/F2806x_common/source/F2806x_usDelay.asm'
+'Invoking: C2000 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_6.4.9/bin/cl2000" -v28 -mt -ml --vcu_support=vcu0 --cla_support=cla0 --float_support=fpu32 --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_6.4.9/include" --include_path="/packages/ti/xdais" --include_path="C:/ti/controlSUITE/device_support/f2806x/v150/F2806x_headers/include" --include_path="C:/ti/controlSUITE/device_support/f2806x/v150/F2806x_common/include" --include_path="C:/ti/controlSUITE/libs/math/IQmath/v160/include" --include_path="C:/ti/controlSUITE/libs/math/FPUfastRTS/V100/include" -g --define="_DEBUG" --define="LARGE_MODEL" --quiet --diag_warning=225 --issue_remarks --verbose_diagnostics --diag_suppress=10063 --output_all_syms --cdebug_asm_data --preproc_with_compile --preproc_dependency="F2806x_usDelay.pp"  "C:/ti/controlSUITE/device_support/f2806x/v150/F2806x_common/source/F2806x_usDelay.asm"
+'Finished building: C:/ti/controlSUITE/device_support/f2806x/v150/F2806x_common/source/F2806x_usDelay.asm'
+' '
+'Building file: ../Main.c'
+'Invoking: C2000 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_6.4.9/bin/cl2000" -v28 -mt -ml --vcu_support=vcu0 --cla_support=cla0 --float_support=fpu32 --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_6.4.9/include" --include_path="/packages/ti/xdais" --include_path="C:/ti/controlSUITE/device_support/f2806x/v150/F2806x_headers/include" --include_path="C:/ti/controlSUITE/device_support/f2806x/v150/F2806x_common/include" --include_path="C:/ti/controlSUITE/libs/math/IQmath/v160/include" --include_path="C:/ti/controlSUITE/libs/math/FPUfastRTS/V100/include" -g --define="_DEBUG" --define="LARGE_MODEL" --quiet --diag_warning=225 --issue_remarks --verbose_diagnostics --diag_suppress=10063 --output_all_syms --cdebug_asm_data --preproc_with_compile --preproc_dependency="Main.pp"  "../Main.c"
+'Finished building: ../Main.c'
+' '
+'Building file: ../adc.c'
+'Invoking: C2000 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_6.4.9/bin/cl2000" -v28 -mt -ml --vcu_support=vcu0 --cla_support=cla0 --float_support=fpu32 --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_6.4.9/include" --include_path="/packages/ti/xdais" --include_path="C:/ti/controlSUITE/device_support/f2806x/v150/F2806x_headers/include" --include_path="C:/ti/controlSUITE/device_support/f2806x/v150/F2806x_common/include" --include_path="C:/ti/controlSUITE/libs/math/IQmath/v160/include" --include_path="C:/ti/controlSUITE/libs/math/FPUfastRTS/V100/include" -g --define="_DEBUG" --define="LARGE_MODEL" --quiet --diag_warning=225 --issue_remarks --verbose_diagnostics --diag_suppress=10063 --output_all_syms --cdebug_asm_data --preproc_with_compile --preproc_dependency="adc.pp"  "../adc.c"
+'Finished building: ../adc.c'
+' '
+'Building file: ../epwm-config.c'
+'Invoking: C2000 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_6.4.9/bin/cl2000" -v28 -mt -ml --vcu_support=vcu0 --cla_support=cla0 --float_support=fpu32 --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_6.4.9/include" --include_path="/packages/ti/xdais" --include_path="C:/ti/controlSUITE/device_support/f2806x/v150/F2806x_headers/include" --include_path="C:/ti/controlSUITE/device_support/f2806x/v150/F2806x_common/include" --include_path="C:/ti/controlSUITE/libs/math/IQmath/v160/include" --include_path="C:/ti/controlSUITE/libs/math/FPUfastRTS/V100/include" -g --define="_DEBUG" --define="LARGE_MODEL" --quiet --diag_warning=225 --issue_remarks --verbose_diagnostics --diag_suppress=10063 --output_all_syms --cdebug_asm_data --preproc_with_compile --preproc_dependency="epwm-config.pp"  "../epwm-config.c"
+'Finished building: ../epwm-config.c'
+' '
+'Building file: ../pwm-isr.c'
+'Invoking: C2000 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_6.4.9/bin/cl2000" -v28 -mt -ml --vcu_support=vcu0 --cla_support=cla0 --float_support=fpu32 --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_6.4.9/include" --include_path="/packages/ti/xdais" --include_path="C:/ti/controlSUITE/device_support/f2806x/v150/F2806x_headers/include" --include_path="C:/ti/controlSUITE/device_support/f2806x/v150/F2806x_common/include" --include_path="C:/ti/controlSUITE/libs/math/IQmath/v160/include" --include_path="C:/ti/controlSUITE/libs/math/FPUfastRTS/V100/include" -g --define="_DEBUG" --define="LARGE_MODEL" --quiet --diag_warning=225 --issue_remarks --verbose_diagnostics --diag_suppress=10063 --output_all_syms --cdebug_asm_data --preproc_with_compile --preproc_dependency="pwm-isr.pp"  "../pwm-isr.c"
+'Finished building: ../pwm-isr.c'
+' '
+'Building target: Example_2806xFlash.out'
+'Invoking: C2000 Linker'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_6.4.9/bin/cl2000" -v28 -mt -ml --vcu_support=vcu0 --cla_support=cla0 --float_support=fpu32 -g --define="_DEBUG" --define="LARGE_MODEL" --quiet --diag_warning=225 --issue_remarks --verbose_diagnostics --diag_suppress=10063 --output_all_syms --cdebug_asm_data -z -m"Example_2806xFlash.map" --stack_size=0x200 --warn_sections -i"C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_6.4.9/lib" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_6.4.9/include" -i"C:/ti/controlSUITE/device_support/f2806x/v150/F2806x_common/lib" -i"C:/ti/controlSUITE/libs/math/IQmath/v160/lib" -i"C:/ti/controlSUITE/libs/math/FPUfastRTS/V100/lib" --reread_libs --priority --verbose_diagnostics --issue_remarks --xml_link_info="Example_2806xFlash_linkInfo.xml" --entry_point=code_start --rom_model -o "Example_2806xFlash.out" -l"rts2800_fpu32_fast_supplement.lib" -l"rts2800_fpu32.lib" "./F2806x_CSMPasswords.obj" "./F2806x_CodeStartBranch.obj" "./F2806x_DefaultIsr.obj" "./F2806x_EPwm.obj" "./F2806x_GlobalVariableDefs.obj" "./F2806x_PieCtrl.obj" "./F2806x_PieVect.obj" "./F2806x_SysCtrl.obj" "./F2806x_usDelay.obj" "./Main.obj" "./adc.obj" "./epwm-config.obj" "./pwm-isr.obj" "C:/ti/controlSUITE/device_support/f2806x/v150/F2806x_common/cmd/F28069.cmd" "C:/ti/controlSUITE/device_support/f2806x/v150/F2806x_headers/cmd/F2806x_Headers_nonBIOS.cmd"  -l"IQmath_fpu32.lib" 
+'Finished building target: Example_2806xFlash.out'
+' '
+
+**** Build Finished ****

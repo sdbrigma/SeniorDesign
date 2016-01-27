@@ -1,0 +1,187 @@
+/*
+ * adc.c
+ *
+ *  Created on: Nov 30, 2015
+ *      Author: Steffon Brigman
+ *      Description:  This file contains functions used to configure all ADC channels to a known state.
+ */
+
+#include "macros.h"
+#include "strings.h"
+#include "functions.h"
+#include "DSP28x_Project.h"
+#include "F2806x_Device.h"     // F2806x Headerfile Include File
+#include "F2806x_Examples.h"   // F2806x Examples Include File
+
+//---------------------------------------------------------------------------
+// InitAdc:
+//---------------------------------------------------------------------------
+// This function initializes ADC to a known state.
+//
+// NOTE: ADC INIT IS DIFFERENT ON F2806x DEVICES COMPARED TO OTHER 28X DEVICES
+//
+//  *IMPORTANT*
+//  IF RUNNING FROM FLASH, PLEASE COPY OVER THE SECTION "ramfuncs"  FROM FLASH
+//  TO RAM PRIOR TO CALLING InitSysCtrl(). THIS PREVENTS THE MCU FROM THROWING
+//  AN EXCEPTION WHEN A CALL TO DELAY_US() IS MADE.
+//
+void InitAdc(void)
+{
+
+    // *IMPORTANT*
+    // The Device_cal function, which copies the ADC calibration values from TI reserved
+    // OTP into the ADCREFSEL and ADCOFFTRIM registers, occurs automatically in the
+    // Boot ROM. If the boot ROM code is bypassed during the debug process, the
+    // following function MUST be called for the ADC to function according
+    // to specification. The clocks to the ADC MUST be enabled before calling this
+    // function.
+    // See the device data manual and/or the ADC Reference
+    // Manual for more information.
+
+        EALLOW;
+        SysCtrlRegs.PCLKCR0.bit.ADCENCLK = 1;
+        (*Device_cal)();
+        EDIS;
+
+    // To powerup the ADC the ADCENCLK bit should be set first to enable
+    // clocks, followed by powering up the bandgap, reference circuitry, and ADC core.
+    // Before the first conversion is performed a 5ms delay must be observed
+    // after power up to give all analog circuits time to power up and settle
+
+    // Please note that for the delay function below to operate correctly the
+    // CPU_RATE define statement in the F2806x_Examples.h file must
+    // contain the correct CPU clock period in nanoseconds.
+    EALLOW;
+    AdcRegs.ADCCTL1.bit.ADCBGPWD  = 1;      // Power ADC BG
+    AdcRegs.ADCCTL1.bit.ADCREFPWD = 1;      // Power reference
+    AdcRegs.ADCCTL1.bit.ADCPWDN   = 1;      // Power ADC
+    AdcRegs.ADCCTL1.bit.ADCENABLE = 1;      // Enable ADC
+    AdcRegs.ADCCTL1.bit.ADCREFSEL = 0;      // Select interal BG.  Set to 1 to use external reference
+    EDIS;
+
+    DELAY_US(ADC_usDELAY);         // Delay before converting ADC channels
+
+    EALLOW;
+    AdcRegs.ADCCTL2.bit.CLKDIV2EN = 1;
+    EDIS;
+
+    DELAY_US(ADC_usDELAY);         // Delay before converting ADC channels
+}
+
+void InitAdcAio(void)
+{
+
+   EALLOW;
+
+/* Configure ADC pins using AIO regs*/
+// This specifies which of the possible AIO pins will be Analog input pins.
+// NOTE: AIO1,3,5,7-9,11,13,15 are analog inputs in all AIOMUX1 configurations.
+// Comment out other unwanted lines.
+
+    GpioCtrlRegs.AIOMUX1.bit.AIO2 = 2;    // Configure AIO2 for A2 (analog input) operation
+    GpioCtrlRegs.AIOMUX1.bit.AIO4 = 2;    // Configure AIO4 for A4 (analog input) operation
+    GpioCtrlRegs.AIOMUX1.bit.AIO6 = 2;    // Configure AIO6 for A6 (analog input) operation
+    GpioCtrlRegs.AIOMUX1.bit.AIO10 = 2;   // Configure AIO10 for B2 (analog input) operation
+    GpioCtrlRegs.AIOMUX1.bit.AIO12 = 2;   // Configure AIO12 for B4 (analog input) operation
+    GpioCtrlRegs.AIOMUX1.bit.AIO14 = 2;   // Configure AIO14 for B6 (analog input) operation
+
+    EDIS;
+}
+
+/*  AdcChanSelect-
+    This function selects the ADC channel to convert by setting all SOC channel selects to a single channel.
+
+     * IMPORTANT * This function will overwrite previous SOC channel select settings. Recommend saving
+           the previous settings.
+ */
+void AdcChanSelect(Uint16 ch_no)
+{
+    AdcRegs.ADCSOC0CTL.bit.CHSEL= ch_no;
+    AdcRegs.ADCSOC1CTL.bit.CHSEL= ch_no;
+    AdcRegs.ADCSOC2CTL.bit.CHSEL= ch_no;
+    AdcRegs.ADCSOC3CTL.bit.CHSEL= ch_no;
+    AdcRegs.ADCSOC4CTL.bit.CHSEL= ch_no;
+    AdcRegs.ADCSOC5CTL.bit.CHSEL= ch_no;
+    AdcRegs.ADCSOC6CTL.bit.CHSEL= ch_no;
+    AdcRegs.ADCSOC7CTL.bit.CHSEL= ch_no;
+    AdcRegs.ADCSOC8CTL.bit.CHSEL= ch_no;
+    AdcRegs.ADCSOC9CTL.bit.CHSEL= ch_no;
+    AdcRegs.ADCSOC10CTL.bit.CHSEL= ch_no;
+    AdcRegs.ADCSOC11CTL.bit.CHSEL= ch_no;
+    AdcRegs.ADCSOC12CTL.bit.CHSEL= ch_no;
+    AdcRegs.ADCSOC13CTL.bit.CHSEL= ch_no;
+    AdcRegs.ADCSOC14CTL.bit.CHSEL= ch_no;
+    AdcRegs.ADCSOC15CTL.bit.CHSEL= ch_no;
+} //end AdcChanSelect
+
+/*  AdcTrigSelect-
+    This function selects the ADC trigger to convert by setting all SOC channel selects to a single channel.
+
+     * IMPORTANT * This function will overwrite previous SOC trigger select settings. Recommend saving
+           the previous settings.
+ */
+void AdcTrigSelect(Uint16 trig_no)
+{
+    AdcRegs.ADCSOC0CTL.bit.TRIGSEL= trig_no;
+    AdcRegs.ADCSOC1CTL.bit.TRIGSEL= trig_no;
+    AdcRegs.ADCSOC2CTL.bit.TRIGSEL= trig_no;
+    AdcRegs.ADCSOC3CTL.bit.TRIGSEL= trig_no;
+    AdcRegs.ADCSOC4CTL.bit.TRIGSEL= trig_no;
+    AdcRegs.ADCSOC5CTL.bit.TRIGSEL= trig_no;
+    AdcRegs.ADCSOC6CTL.bit.TRIGSEL= trig_no;
+    AdcRegs.ADCSOC7CTL.bit.TRIGSEL= trig_no;
+    AdcRegs.ADCSOC8CTL.bit.TRIGSEL= trig_no;
+    AdcRegs.ADCSOC9CTL.bit.TRIGSEL= trig_no;
+    AdcRegs.ADCSOC10CTL.bit.TRIGSEL= trig_no;
+    AdcRegs.ADCSOC11CTL.bit.TRIGSEL= trig_no;
+    AdcRegs.ADCSOC12CTL.bit.TRIGSEL= trig_no;
+    AdcRegs.ADCSOC13CTL.bit.TRIGSEL= trig_no;
+    AdcRegs.ADCSOC14CTL.bit.TRIGSEL= trig_no;
+    AdcRegs.ADCSOC15CTL.bit.TRIGSEL= trig_no;
+} //end AdcTrigSelect
+
+/*  AdcAcquSelect-
+    This function selects the ADC acquisition window size by setting all SOC channel selects to a single channel.
+
+     * IMPORTANT * This function will overwrite previous SOC acquistion select settings. Recommend saving
+           the previous settings.
+ */
+void AdcAcquSelect(Uint32 acqu_no)
+{
+    AdcRegs.ADCSOC0CTL.bit.ACQPS= acqu_no;
+    AdcRegs.ADCSOC1CTL.bit.ACQPS= acqu_no;
+    AdcRegs.ADCSOC2CTL.bit.ACQPS= acqu_no;
+    AdcRegs.ADCSOC3CTL.bit.ACQPS= acqu_no;
+    AdcRegs.ADCSOC4CTL.bit.ACQPS= acqu_no;
+    AdcRegs.ADCSOC5CTL.bit.ACQPS= acqu_no;
+    AdcRegs.ADCSOC6CTL.bit.ACQPS= acqu_no;
+    AdcRegs.ADCSOC7CTL.bit.ACQPS= acqu_no;
+    AdcRegs.ADCSOC8CTL.bit.ACQPS= acqu_no;
+    AdcRegs.ADCSOC9CTL.bit.ACQPS= acqu_no;
+    AdcRegs.ADCSOC10CTL.bit.ACQPS= acqu_no;
+    AdcRegs.ADCSOC11CTL.bit.ACQPS= acqu_no;
+    AdcRegs.ADCSOC12CTL.bit.ACQPS= acqu_no;
+    AdcRegs.ADCSOC13CTL.bit.ACQPS= acqu_no;
+    AdcRegs.ADCSOC14CTL.bit.ACQPS= acqu_no;
+    AdcRegs.ADCSOC15CTL.bit.ACQPS= acqu_no;
+} //end AdcAcquSelect
+
+void ConfigADC(void){
+	EALLOW;
+    AdcRegs.ADCCTL2.bit.ADCNONOVERLAP = 1;	// Enable non-overlap mode
+	AdcRegs.INTSEL1N2.bit.INT1E     = 1;	// Enabled ADCINT1
+	AdcRegs.INTSEL1N2.bit.INT1CONT  = 1;	// Enable ADCINT1 Continuous mode
+	AdcRegs.ADCSAMPLEMODE.all = 0; // Set sequential sampling for all channels
+    //AdcRegs.INTSEL1N2.bit.INT1SEL 	= 0;    // setup EOC0 to trigger ADCINT1 to fire
+	AdcRegs.SOCPRICTL.bit.RRPOINTER = 0x0F;  //SOC15 last to convert SOC0 has highest priority in Round Robin
+	AdcRegs.SOCPRICTL.bit.SOCPRIORITY = 0x00; // SOC0 is high priority SOC1-15 are in round robin
+
+    AdcChanSelect(13); // Select ADCINA1 as the channel for SOC0-15
+    AdcTrigSelect(ADCSOCA);    // set all SOC start trigger on EPWM5A, due to round-robin SOC0 converts first then SOC1
+    AdcAcquSelect(17);	// set all SOC S/H Window to 17 ADC Clock Cycles, (16 ACQPS plus 1)
+	EDIS;
+}
+//===========================================================================
+// End of file.
+//===========================================================================
+

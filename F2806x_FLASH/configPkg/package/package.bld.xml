@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<!--  This file conforms to the DTD xdc/bld/build.dtd -->
+<package name="configPkg" version="" producerId="undefined">
+    <units>
+    </units>
+    <sources>
+        <srcFile name="package/cfg/main_p28L.c"/>
+    </sources>
+    <configscripts>
+        <srcFile name="C:/ti/controlSUITE/development_kits/BOOSTXL_BUCKCONV/v1_01_00_00/Buck_VMC_F28069M/main.cfg"/>
+    </configscripts>
+    <makefiles>
+        <srcFile name="package.mak" src="package.bld"/>
+        <srcFile name="package/package.xdc.dep" src="package.xdc"/>
+        <srcFile name="package/cfg/main_p28L.mak" src="package.bld"/>
+        <srcFile name="package/cfg/main_p28L.o28L.dep" src="package/cfg/main_p28L.c"/>
+        <srcFile name="package/cfg/main_p28L.dep" src="package/cfg/main_p28L.cfg"/>
+        <srcFile name="package/cfg/main.x28L.mak" src="package.bld"/>
+        <srcFile name="package/rel/configPkg.tar.dep" src="package/rel/configPkg.xdc.inc"/>
+    </makefiles>
+    <targets>
+        <target name="devkits.target.Generic"
+            version="devkits.target.Generic{1,0,0"
+            rawVersion=""
+            platform="undefined"
+            isa="28"
+            suffix="28L"
+            rootDir="C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_6.4.6"
+            os="undefined"
+            rts="undefined">
+            <model endian="little"
+                codeModel="undefined"
+                dataModel="large"/>
+        </target>
+    </targets>
+    <libraries>
+    </libraries>
+    <configurations>
+    <configuration name="main"
+        pname="main.p28L"
+        target="devkits.target.Generic"
+        platform="devkits.platform"
+        profile="debug"
+        isPartial="false"
+        xCfgScript="package/cfg/main_p28L.cfg"
+        xCfgPrefix="package/cfg/main_p28L"
+        cfgScript="C:/ti/controlSUITE/development_kits/BOOSTXL_BUCKCONV/v1_01_00_00/Buck_VMC_F28069M/main.cfg"
+        cfgArgs="null"
+        />
+    </configurations>
+    <executables>
+    <executable name="main"
+        pname="main.x28L"
+        target="devkits.target.Generic"
+        platform="devkits.platform"
+        profile="debug"
+        xCfgScript="package/cfg/main_p28L.cfg"
+        xCfgPrefix="package/cfg/main_p28L"
+        cfgScript="C:/ti/controlSUITE/development_kits/BOOSTXL_BUCKCONV/v1_01_00_00/Buck_VMC_F28069M/main.cfg"
+        cfgArgs="null"
+        />
+    </executables>
+    <tests>
+    <test exeName="main.x28L"
+        args=""
+        groupName="main.x28L"
+        refOutput="undefined"
+        refExitCode="0"
+        execArgs=""
+        />
+    </tests>
+    <releases relDir="package/rel/">
+    <release name="configPkg"
+        pname="configPkg.tar"
+        label="default"
+    >
+        <file name="package/package.bld.xml"/>
+        <file name="package/build.cfg"/>
+        <file name="package/package.xdc.inc"/>
+    </release>
+    </releases>
+    <repositories>
+    </repositories>
+</package>

@@ -1,0 +1,80 @@
+
+**** Build of configuration F2806x_FLASH for project Buck_VMC_F28069M ****
+
+"C:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
+'Building file: ../main.cfg'
+'Invoking: XDCtools'
+"C:/ti/xdctools_3_31_00_24_core/xs" --xdcpath="C:/ti/controlSUITE/powerSUITE/v_1_01_00_00/packages;" xdc.tools.configuro -o configPkg -t devkits.target.Generic -p devkits.platform -r debug -c "C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_6.4.9" -Dxdc.cfg.tsort.policy=fast -Dxdc.cfg.gen.metadataFiles=false -Dxdc.cfg.SourceDir.verbose=7 --compileOptions "-v28 -mt -ml --vcu_support=vcu0 --cla_support=cla0 --float_support=softlib --include_path=\"C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_6.4.9/include\" --include_path=\"C:/ti/controlSUITE/development_kits/~SupportFiles/F2806x_headers\" --include_path=\"C:/ti/controlSUITE/device_support/f2806x/v140/F2806x_common/include\" --include_path=\"C:/ti/controlSUITE/device_support/f2806x/v140/F2806x_headers/include\" --include_path=\"C:/ti/controlSUITE/libs/math/IQmath/v160/include\" --include_path=\"C:/ti/controlSUITE/libs/app_libs/digital_power/f2806x_v3.5/include\" --include_path=\"C:/ti/controlSUITE/libs/app_libs/digital_power/f2806x_v3.5/asm_macros\" --include_path=\"C:/ti/controlSUITE/libs/app_libs/SFRA/v1_10_00_00/IQ/include\" -g --define=\"FLASH\" --diag_warning=225  " "../main.cfg"
+making package.mak (because of package.bld) ...
+generating interfaces for package configPkg (because package/package.xdc.inc is older than package.xdc) ...
+configuring main.x28L from package/cfg/main_p28L.cfg ...
+projectDir: C:/ti/controlSUITE/development_kits/BOOSTXL_BUCKCONV/v1_01_00_00/Buck_VMC_F28069M
+LockFilePath: C:/ti/controlSUITE/development_kits/BOOSTXL_BUCKCONV/v1_01_00_00/Buck_VMC_F28069M/.cookie
+validate, xmlFile: C:/ti/controlSUITE/development_kits/BOOSTXL_BUCKCONV/v1_01_00_00/Buck_VMC_F28069M/Buck.xml
+Writing power stage params to XML and compensation option number!
+Read compensation values from XML 
+Writing COMP0_A1 0.828597658074737 0.828597658074737
+Read compensation values from XML 
+Writing COMP0_A1 0.828597658074737 0.828597658074737
+genHeaderFile C:/ti/controlSUITE/development_kits/BOOSTXL_BUCKCONV/v1_01_00_00/Buck_VMC_F28069M/Buck_VMC-Settings.h
+cl28L package/cfg/main_p28L.o28L ...
+'Finished building: ../main.cfg'
+' '
+'Building file: C:/ti/controlSUITE/libs/app_libs/digital_power/f2806x_v3.5/CNF/ADC_SOC_Cnf.c'
+'Invoking: C2000 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_6.4.9/bin/cl2000" -v28 -mt -ml --vcu_support=vcu0 --cla_support=cla0 --float_support=softlib --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_6.4.9/include" --include_path="C:/ti/controlSUITE/development_kits/~SupportFiles/F2806x_headers" --include_path="C:/ti/controlSUITE/device_support/f2806x/v140/F2806x_common/include" --include_path="C:/ti/controlSUITE/device_support/f2806x/v140/F2806x_headers/include" --include_path="C:/ti/controlSUITE/libs/math/IQmath/v160/include" --include_path="C:/ti/controlSUITE/libs/app_libs/digital_power/f2806x_v3.5/include" --include_path="C:/ti/controlSUITE/libs/app_libs/digital_power/f2806x_v3.5/asm_macros" --include_path="C:/ti/controlSUITE/libs/app_libs/SFRA/v1_10_00_00/IQ/include" -g --define="FLASH" --diag_warning=225 --preproc_with_compile --preproc_dependency="ADC_SOC_Cnf.pp" --cmd_file="configPkg/compiler.opt" "C:/ti/controlSUITE/libs/app_libs/digital_power/f2806x_v3.5/CNF/ADC_SOC_Cnf.c"
+'Finished building: C:/ti/controlSUITE/libs/app_libs/digital_power/f2806x_v3.5/CNF/ADC_SOC_Cnf.c'
+' '
+'Building file: ../Buck_VMC-DPL.asm'
+'Invoking: C2000 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_6.4.9/bin/cl2000" -v28 -mt -ml --vcu_support=vcu0 --cla_support=cla0 --float_support=softlib --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_6.4.9/include" --include_path="C:/ti/controlSUITE/development_kits/~SupportFiles/F2806x_headers" --include_path="C:/ti/controlSUITE/device_support/f2806x/v140/F2806x_common/include" --include_path="C:/ti/controlSUITE/device_support/f2806x/v140/F2806x_headers/include" --include_path="C:/ti/controlSUITE/libs/math/IQmath/v160/include" --include_path="C:/ti/controlSUITE/libs/app_libs/digital_power/f2806x_v3.5/include" --include_path="C:/ti/controlSUITE/libs/app_libs/digital_power/f2806x_v3.5/asm_macros" --include_path="C:/ti/controlSUITE/libs/app_libs/SFRA/v1_10_00_00/IQ/include" -g --define="FLASH" --diag_warning=225 --preproc_with_compile --preproc_dependency="Buck_VMC-DPL.pp" --cmd_file="configPkg/compiler.opt" "../Buck_VMC-DPL.asm"
+'Finished building: ../Buck_VMC-DPL.asm'
+' '
+'Building file: ../Buck_VMC-DevInit_F2806x.c'
+'Invoking: C2000 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_6.4.9/bin/cl2000" -v28 -mt -ml --vcu_support=vcu0 --cla_support=cla0 --float_support=softlib --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_6.4.9/include" --include_path="C:/ti/controlSUITE/development_kits/~SupportFiles/F2806x_headers" --include_path="C:/ti/controlSUITE/device_support/f2806x/v140/F2806x_common/include" --include_path="C:/ti/controlSUITE/device_support/f2806x/v140/F2806x_headers/include" --include_path="C:/ti/controlSUITE/libs/math/IQmath/v160/include" --include_path="C:/ti/controlSUITE/libs/app_libs/digital_power/f2806x_v3.5/include" --include_path="C:/ti/controlSUITE/libs/app_libs/digital_power/f2806x_v3.5/asm_macros" --include_path="C:/ti/controlSUITE/libs/app_libs/SFRA/v1_10_00_00/IQ/include" -g --define="FLASH" --diag_warning=225 --preproc_with_compile --preproc_dependency="Buck_VMC-DevInit_F2806x.pp" --cmd_file="configPkg/compiler.opt" "../Buck_VMC-DevInit_F2806x.c"
+'Finished building: ../Buck_VMC-DevInit_F2806x.c'
+' '
+'Building file: ../Buck_VMC-Main.c'
+'Invoking: C2000 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_6.4.9/bin/cl2000" -v28 -mt -ml --vcu_support=vcu0 --cla_support=cla0 --float_support=softlib --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_6.4.9/include" --include_path="C:/ti/controlSUITE/development_kits/~SupportFiles/F2806x_headers" --include_path="C:/ti/controlSUITE/device_support/f2806x/v140/F2806x_common/include" --include_path="C:/ti/controlSUITE/device_support/f2806x/v140/F2806x_headers/include" --include_path="C:/ti/controlSUITE/libs/math/IQmath/v160/include" --include_path="C:/ti/controlSUITE/libs/app_libs/digital_power/f2806x_v3.5/include" --include_path="C:/ti/controlSUITE/libs/app_libs/digital_power/f2806x_v3.5/asm_macros" --include_path="C:/ti/controlSUITE/libs/app_libs/SFRA/v1_10_00_00/IQ/include" -g --define="FLASH" --diag_warning=225 --preproc_with_compile --preproc_dependency="Buck_VMC-Main.pp" --cmd_file="configPkg/compiler.opt" "../Buck_VMC-Main.c"
+'Finished building: ../Buck_VMC-Main.c'
+' '
+'Building file: C:/ti/controlSUITE/libs/app_libs/digital_power/f2806x_v3.5/CNF/DAC_Cnf.c'
+'Invoking: C2000 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_6.4.9/bin/cl2000" -v28 -mt -ml --vcu_support=vcu0 --cla_support=cla0 --float_support=softlib --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_6.4.9/include" --include_path="C:/ti/controlSUITE/development_kits/~SupportFiles/F2806x_headers" --include_path="C:/ti/controlSUITE/device_support/f2806x/v140/F2806x_common/include" --include_path="C:/ti/controlSUITE/device_support/f2806x/v140/F2806x_headers/include" --include_path="C:/ti/controlSUITE/libs/math/IQmath/v160/include" --include_path="C:/ti/controlSUITE/libs/app_libs/digital_power/f2806x_v3.5/include" --include_path="C:/ti/controlSUITE/libs/app_libs/digital_power/f2806x_v3.5/asm_macros" --include_path="C:/ti/controlSUITE/libs/app_libs/SFRA/v1_10_00_00/IQ/include" -g --define="FLASH" --diag_warning=225 --preproc_with_compile --preproc_dependency="DAC_Cnf.pp" --cmd_file="configPkg/compiler.opt" "C:/ti/controlSUITE/libs/app_libs/digital_power/f2806x_v3.5/CNF/DAC_Cnf.c"
+'Finished building: C:/ti/controlSUITE/libs/app_libs/digital_power/f2806x_v3.5/CNF/DAC_Cnf.c'
+' '
+'Building file: C:/ti/controlSUITE/device_support/f2806x/v140/F2806x_common/source/F2806x_CodeStartBranch.asm'
+'Invoking: C2000 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_6.4.9/bin/cl2000" -v28 -mt -ml --vcu_support=vcu0 --cla_support=cla0 --float_support=softlib --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_6.4.9/include" --include_path="C:/ti/controlSUITE/development_kits/~SupportFiles/F2806x_headers" --include_path="C:/ti/controlSUITE/device_support/f2806x/v140/F2806x_common/include" --include_path="C:/ti/controlSUITE/device_support/f2806x/v140/F2806x_headers/include" --include_path="C:/ti/controlSUITE/libs/math/IQmath/v160/include" --include_path="C:/ti/controlSUITE/libs/app_libs/digital_power/f2806x_v3.5/include" --include_path="C:/ti/controlSUITE/libs/app_libs/digital_power/f2806x_v3.5/asm_macros" --include_path="C:/ti/controlSUITE/libs/app_libs/SFRA/v1_10_00_00/IQ/include" -g --define="FLASH" --diag_warning=225 --preproc_with_compile --preproc_dependency="F2806x_CodeStartBranch.pp" --cmd_file="configPkg/compiler.opt" "C:/ti/controlSUITE/device_support/f2806x/v140/F2806x_common/source/F2806x_CodeStartBranch.asm"
+'Finished building: C:/ti/controlSUITE/device_support/f2806x/v140/F2806x_common/source/F2806x_CodeStartBranch.asm'
+' '
+'Building file: C:/ti/controlSUITE/device_support/f2806x/v140/F2806x_headers/source/F2806x_GlobalVariableDefs.c'
+'Invoking: C2000 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_6.4.9/bin/cl2000" -v28 -mt -ml --vcu_support=vcu0 --cla_support=cla0 --float_support=softlib --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_6.4.9/include" --include_path="C:/ti/controlSUITE/development_kits/~SupportFiles/F2806x_headers" --include_path="C:/ti/controlSUITE/device_support/f2806x/v140/F2806x_common/include" --include_path="C:/ti/controlSUITE/device_support/f2806x/v140/F2806x_headers/include" --include_path="C:/ti/controlSUITE/libs/math/IQmath/v160/include" --include_path="C:/ti/controlSUITE/libs/app_libs/digital_power/f2806x_v3.5/include" --include_path="C:/ti/controlSUITE/libs/app_libs/digital_power/f2806x_v3.5/asm_macros" --include_path="C:/ti/controlSUITE/libs/app_libs/SFRA/v1_10_00_00/IQ/include" -g --define="FLASH" --diag_warning=225 --preproc_with_compile --preproc_dependency="F2806x_GlobalVariableDefs.pp" --cmd_file="configPkg/compiler.opt" "C:/ti/controlSUITE/device_support/f2806x/v140/F2806x_headers/source/F2806x_GlobalVariableDefs.c"
+'Finished building: C:/ti/controlSUITE/device_support/f2806x/v140/F2806x_headers/source/F2806x_GlobalVariableDefs.c'
+' '
+'Building file: C:/ti/controlSUITE/device_support/f2806x/v140/F2806x_common/source/F2806x_usDelay.asm'
+'Invoking: C2000 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_6.4.9/bin/cl2000" -v28 -mt -ml --vcu_support=vcu0 --cla_support=cla0 --float_support=softlib --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_6.4.9/include" --include_path="C:/ti/controlSUITE/development_kits/~SupportFiles/F2806x_headers" --include_path="C:/ti/controlSUITE/device_support/f2806x/v140/F2806x_common/include" --include_path="C:/ti/controlSUITE/device_support/f2806x/v140/F2806x_headers/include" --include_path="C:/ti/controlSUITE/libs/math/IQmath/v160/include" --include_path="C:/ti/controlSUITE/libs/app_libs/digital_power/f2806x_v3.5/include" --include_path="C:/ti/controlSUITE/libs/app_libs/digital_power/f2806x_v3.5/asm_macros" --include_path="C:/ti/controlSUITE/libs/app_libs/SFRA/v1_10_00_00/IQ/include" -g --define="FLASH" --diag_warning=225 --preproc_with_compile --preproc_dependency="F2806x_usDelay.pp" --cmd_file="configPkg/compiler.opt" "C:/ti/controlSUITE/device_support/f2806x/v140/F2806x_common/source/F2806x_usDelay.asm"
+'Finished building: C:/ti/controlSUITE/device_support/f2806x/v140/F2806x_common/source/F2806x_usDelay.asm'
+' '
+'Building file: C:/ti/controlSUITE/libs/app_libs/digital_power/f2806x_v3.5/CNF/PWM_1ch_UpCntDB_ActivHIC_Cnf.c'
+'Invoking: C2000 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_6.4.9/bin/cl2000" -v28 -mt -ml --vcu_support=vcu0 --cla_support=cla0 --float_support=softlib --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_6.4.9/include" --include_path="C:/ti/controlSUITE/development_kits/~SupportFiles/F2806x_headers" --include_path="C:/ti/controlSUITE/device_support/f2806x/v140/F2806x_common/include" --include_path="C:/ti/controlSUITE/device_support/f2806x/v140/F2806x_headers/include" --include_path="C:/ti/controlSUITE/libs/math/IQmath/v160/include" --include_path="C:/ti/controlSUITE/libs/app_libs/digital_power/f2806x_v3.5/include" --include_path="C:/ti/controlSUITE/libs/app_libs/digital_power/f2806x_v3.5/asm_macros" --include_path="C:/ti/controlSUITE/libs/app_libs/SFRA/v1_10_00_00/IQ/include" -g --define="FLASH" --diag_warning=225 --preproc_with_compile --preproc_dependency="PWM_1ch_UpCntDB_ActivHIC_Cnf.pp" --cmd_file="configPkg/compiler.opt" "C:/ti/controlSUITE/libs/app_libs/digital_power/f2806x_v3.5/CNF/PWM_1ch_UpCntDB_ActivHIC_Cnf.c"
+'Finished building: C:/ti/controlSUITE/libs/app_libs/digital_power/f2806x_v3.5/CNF/PWM_1ch_UpCntDB_ActivHIC_Cnf.c'
+' '
+'Building file: C:/ti/controlSUITE/libs/app_libs/SFRA/v1_10_00_00/GUI/SciCommsGui_32bit.c'
+'Invoking: C2000 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_6.4.9/bin/cl2000" -v28 -mt -ml --vcu_support=vcu0 --cla_support=cla0 --float_support=softlib --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_6.4.9/include" --include_path="C:/ti/controlSUITE/development_kits/~SupportFiles/F2806x_headers" --include_path="C:/ti/controlSUITE/device_support/f2806x/v140/F2806x_common/include" --include_path="C:/ti/controlSUITE/device_support/f2806x/v140/F2806x_headers/include" --include_path="C:/ti/controlSUITE/libs/math/IQmath/v160/include" --include_path="C:/ti/controlSUITE/libs/app_libs/digital_power/f2806x_v3.5/include" --include_path="C:/ti/controlSUITE/libs/app_libs/digital_power/f2806x_v3.5/asm_macros" --include_path="C:/ti/controlSUITE/libs/app_libs/SFRA/v1_10_00_00/IQ/include" -g --define="FLASH" --diag_warning=225 --preproc_with_compile --preproc_dependency="SciCommsGui_32bit.pp" --cmd_file="configPkg/compiler.opt" "C:/ti/controlSUITE/libs/app_libs/SFRA/v1_10_00_00/GUI/SciCommsGui_32bit.c"
+'Finished building: C:/ti/controlSUITE/libs/app_libs/SFRA/v1_10_00_00/GUI/SciCommsGui_32bit.c'
+' '
+'Building target: DP_BP.out'
+'Invoking: C2000 Linker'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_6.4.9/bin/cl2000" -v28 -mt -ml --vcu_support=vcu0 --cla_support=cla0 --float_support=softlib -g --define="FLASH" --diag_warning=225 -z -m"DP_BP.map" --stack_size=0x300 --warn_sections -i"C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_6.4.9/lib" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_6.4.9/include" -i"C:/ti/controlSUITE/libs/math/IQmath/v160/lib" -i"C:/ti/controlSUITE/libs/app_libs/SFRA/v1_10_00_00/IQ/lib" --reread_libs --xml_link_info="Lab3_linkInfo.xml" --rom_model -o "DP_BP.out" "./ADC_SOC_Cnf.obj" "./Buck_VMC-DPL.obj" "./Buck_VMC-DevInit_F2806x.obj" "./Buck_VMC-Main.obj" "./DAC_Cnf.obj" "./F2806x_CodeStartBranch.obj" "./F2806x_GlobalVariableDefs.obj" "./F2806x_usDelay.obj" "./PWM_1ch_UpCntDB_ActivHIC_Cnf.obj" "./SciCommsGui_32bit.obj" "../F28069M_FLASH_DP_BoosterPack.CMD" "C:/ti/controlSUITE/device_support/f2806x/v140/F2806x_headers/cmd/F2806x_Headers_nonBIOS.cmd" -l"configPkg/linker.cmd" -l"rts2800_ml.lib" -l"SFRA_IQ_Lib.lib" -l"IQmath.lib" -l"libc.a" 
+<Linking>
+'Finished building target: DP_BP.out'
+' '
+
+**** Build Finished ****
